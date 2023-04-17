@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/9265c174b0.js" crossorigin="anonymous"></script>
+    <title>검단우리교회 청년부</title>
+    
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+        }
+
+        .con {
+            max-width: 1080px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .top_bar {
+            height: 80px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            top: 0px;
+            position: sticky;
+            background-color: rgba(255, 255, 255, 0.5);
+            transition: all 0.2s;
+        }
+
+        .top_bar:hover {
+            background-color: white;
+        }
+
+        .top_bar > .con > .logo {
+            padding: 0 20px;   
+        }
+
+        .flex-grow {
+            flex-grow: 1;
+        }
+
+        .h-full {
+            height: 100%;
+        }
+
+        .w-full {
+            width: 100%;
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .top_bar > .con > .menu-1 > li:hover > a {
+            text-decoration: underline;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .thin {
+            font-weight: lighter;
+        }
+
+        .toggle-btn {
+            display: none;
+        }
+
+        .menu-bar-lists {
+            display: "";
+        }
+
+        .main-bg {
+            height: 33rem;
+        }
+
+        .bg-here {
+            background: url(https://ifh.cc/g/7FW5hb.jpg) no-repeat;
+            background-size: 100%;
+            height: 100%;
+        }
+
+        .options {
+            display: flex;
+            text-align: center;
+            height: 80px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .options > li {
+            width: 20%;
+        }
+
+        .options li:hover {
+            background-color: #dedcee;
+            transition: all 0.2s;
+        }
+
+        footer {
+            height: 30px;
+            background-color: #383A3F;
+            margin-top: 10rem;
+            text-align: center;
+
+        }
+
+        footer > a {
+            color: rgb(216, 216, 216);
+            font-size: small;
+        }
+
+        .body-class {
+            margin-top: 5rem;
+            height: 240px;
+            display: flex;
+        }
+
+        .none {
+            display: none;
+        }
+
+            * {margin: 0; padding: 0; box-sizing: border-box;}
+            ul, li {list-style: none;}
+
+        .slidebox {
+            max-width: 320px;
+            height: 245px;
+            width: 100%;
+            margin: 0 auto;
+            border: 10px solid rgb(133, 133, 133);
+            border-radius: 5px;
+        }
+
+        .slidebox img {
+            max-width: 100%;
+        }
+
+        .slidebox .slidelist {
+            white-space: nowrap;
+            font-size: 0;
+            overflow: hidden;
+            perspective: 100%;
+        }
+
+        .slidebox .slideitem {
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            width: 100%;
+            transition: all .5s;
+        }
+
+        [id="slide01"]:checked ~ .slidelist .slideitem {transform: translate(0%);animation: slide01 50s infinite;}
+        [id="slide02"]:checked ~ .slidelist .slideitem {transform: translate(-100%);animation: slide02 50s infinite;}
+        [id="slide03"]:checked ~ .slidelist .slideitem {transform: translate(-200%);animation: slide03 50s infinite;}
+        [id="slide04"]:checked ~ .slidelist .slideitem {transform: translate(-300%);animation: slide04 50s infinite;}
+        [id="slide05"]:checked ~ .slidelist .slideitem {transform: translate(-400%);animation: slide05 50s infinite;}
+        [id="slide06"]:checked ~ .slidelist .slideitem {transform: translate(-500%);animation: slide06 50s infinite;}
+        [id="slide07"]:checked ~ .slidelist .slideitem {transform: translate(-600%);animation: slide07 50s infinite;}
+        [id="slide08"]:checked ~ .slidelist .slideitem {transform: translate(-700%);animation: slide08 50s infinite;}
+        [id="slide09"]:checked ~ .slidelist .slideitem {transform: translate(-800%);animation: slide09 50s infinite;}
+        [id="slide10"]:checked ~ .slidelist .slideitem {transform: translate(-900%);animation: slide10 50s infinite;}
+
+        @keyframes slide01 {
+            0% {left: 0%;}
+            8% {left: 0%;}
+            10% {left: -100%;}
+            18% {left: -100%;}
+            20% {left: -200%;}
+            28% {left: -200%;}
+            30% {left: -300%;}
+            38% {left: -300%;}
+            40% {left: -400%;}
+            48% {left: -400%;}
+            50% {left: -500%;}
+            58% {left: -500%;}
+            60% {left: -600%;}
+            68% {left: -600%;}
+            70% {left: -700%;}
+            78% {left: -700%;}
+            80% {left: -800%;}
+            88% {left: -800%;}
+            90% {left: -900%;}
+            98% {left: -900%;}
+            100% {left: 0%;}
+        }
+
+        @keyframes slide02 {
+            0% {left: 0%;}
+            8% {left: 0%;}
+            10% {left: -100%;}
+            18% {left: -100%;}
+            20% {left: -200%;}
+            28% {left: -200%;}
+            30% {left: -300%;}
+            38% {left: -300%;}
+            40% {left: -400%;}
+            48% {left: -400%;}
+            50% {left: -500%;}
+            58% {left: -500%;}
+            60% {left: -600%;}
+            68% {left: -600%;}
+            70% {left: -700%;}
+            78% {left: -700%;}
+            80% {left: -800%;}
+            88% {left: -800%;}
+            90% {left: -900%;}
+            98% {left: -900%;}
+            100% {left: 0%;}
+        }
+
+        @keyframes slide03 {
+            0% {left: 0%;}
+            8% {left: 0%;}
+            10% {left: -100%;}
+            18% {left: -100%;}
+            20% {left: -200%;}
+            28% {left: -200%;}
+            30% {left: -300%;}
+            38% {left: -300%;}
+            40% {left: -400%;}
+            48% {left: -400%;}
+            50% {left: -500%;}
+            58% {left: -500%;}
+            60% {left: -600%;}
+            68% {left: -600%;}
+            70% {left: -700%;}
+            78% {left: -700%;}
+            80% {left: -800%;}
+            88% {left: -800%;}
+            90% {left: -900%;}
+            98% {left: -900%;}
+            100% {left: 0%;}
+        }
+
+        @keyframes slide04 {
+            0% {left: 0%;}
+            8% {left: 0%;}
+            10% {left: -100%;}
+            18% {left: -100%;}
+            20% {left: -200%;}
+            28% {left: -200%;}
+            30% {left: -300%;}
+            38% {left: -300%;}
+            40% {left: -400%;}
+            48% {left: -400%;}
+            50% {left: -500%;}
+            58% {left: -500%;}
+            60% {left: -600%;}
+            68% {left: -600%;}
+            70% {left: -700%;}
+            78% {left: -700%;}
+            80% {left: -800%;}
+            88% {left: -800%;}
+            90% {left: -900%;}
+            98% {left: -900%;}
+            100% {left: 0%;}
+        }
+
+        @keyframes slide05 {
+            0% {left: 0%;}
+            8% {left: 0%;}
+            10% {left: -100%;}
+            18% {left: -100%;}
+            20% {left: -200%;}
+            28% {left: -200%;}
+            30% {left: -300%;}
+            38% {left: -300%;}
+            40% {left: -400%;}
+            48% {left: -400%;}
+            50% {left: -500%;}
+            58% {left: -500%;}
+            60% {left: -600%;}
+            68% {left: -600%;}
+            70% {left: -700%;}
+            78% {left: -700%;}
+            80% {left: -800%;}
+            88% {left: -800%;}
+            90% {left: -900%;}
+            98% {left: -900%;}
+            100% {left: 0%;}
+        }
+
+        @keyframes slide06 {
+            0% {left: 0%;}
+            8% {left: 0%;}
+            10% {left: -100%;}
+            18% {left: -100%;}
+            20% {left: -200%;}
+            28% {left: -200%;}
+            30% {left: -300%;}
+            38% {left: -300%;}
+            40% {left: -400%;}
+            48% {left: -400%;}
+            50% {left: -500%;}
+            58% {left: -500%;}
+            60% {left: -600%;}
+            68% {left: -600%;}
+            70% {left: -700%;}
+            78% {left: -700%;}
+            80% {left: -800%;}
+            88% {left: -800%;}
+            90% {left: -900%;}
+            98% {left: -900%;}
+            100% {left: 0%;}
+        }
+
+        @keyframes slide07 {
+            0% {left: 0%;}
+            8% {left: 0%;}
+            10% {left: -100%;}
+            18% {left: -100%;}
+            20% {left: -200%;}
+            28% {left: -200%;}
+            30% {left: -300%;}
+            38% {left: -300%;}
+            40% {left: -400%;}
+            48% {left: -400%;}
+            50% {left: -500%;}
+            58% {left: -500%;}
+            60% {left: -600%;}
+            68% {left: -600%;}
+            70% {left: -700%;}
+            78% {left: -700%;}
+            80% {left: -800%;}
+            88% {left: -800%;}
+            90% {left: -900%;}
+            98% {left: -900%;}
+            100% {left: 0%;}
+        }
+
+        @keyframes slide08 {
+            0% {left: 0%;}
+            8% {left: 0%;}
+            10% {left: -100%;}
+            18% {left: -100%;}
+            20% {left: -200%;}
+            28% {left: -200%;}
+            30% {left: -300%;}
+            38% {left: -300%;}
+            40% {left: -400%;}
+            48% {left: -400%;}
+            50% {left: -500%;}
+            58% {left: -500%;}
+            60% {left: -600%;}
+            68% {left: -600%;}
+            70% {left: -700%;}
+            78% {left: -700%;}
+            80% {left: -800%;}
+            88% {left: -800%;}
+            90% {left: -900%;}
+            98% {left: -900%;}
+            100% {left: 0%;}
+        }
+
+        @keyframes slide09 {
+            0% {left: 0%;}
+            8% {left: 0%;}
+            10% {left: -100%;}
+            18% {left: -100%;}
+            20% {left: -200%;}
+            28% {left: -200%;}
+            30% {left: -300%;}
+            38% {left: -300%;}
+            40% {left: -400%;}
+            48% {left: -400%;}
+            50% {left: -500%;}
+            58% {left: -500%;}
+            60% {left: -600%;}
+            68% {left: -600%;}
+            70% {left: -700%;}
+            78% {left: -700%;}
+            80% {left: -800%;}
+            88% {left: -800%;}
+            90% {left: -900%;}
+            98% {left: -900%;}
+            100% {left: 0%;}
+        }
+
+        @keyframes slide10 {
+            0% {left: 0%;}
+            8% {left: 0%;}
+            10% {left: -100%;}
+            18% {left: -100%;}
+            20% {left: -200%;}
+            28% {left: -200%;}
+            30% {left: -300%;}
+            38% {left: -300%;}
+            40% {left: -400%;}
+            48% {left: -400%;}
+            50% {left: -500%;}
+            58% {left: -500%;}
+            60% {left: -600%;}
+            68% {left: -600%;}
+            70% {left: -700%;}
+            78% {left: -700%;}
+            80% {left: -800%;}
+            88% {left: -800%;}
+            90% {left: -900%;}
+            98% {left: -900%;}
+            100% {left: 0%;}
+        }
+
+        .pray4 {
+            width: 320px;
+            height: 240px;
+        }
+
+        .pray4-picture {
+            background: url(https://ifh.cc/g/v33A82.jpg) no-repeat;
+            width: 100%;
+            height: 100%;
+            background-size: 100%;
+        }
+
+        @media screen and (max-width: 1081px) {
+            .main-bg {
+                height: 28rem;
+            }
+        }
+
+        @media screen and (max-width: 851px) {
+            .main-bg {
+                height: 22rem;
+            }
+
+            .option {
+                font-size: small;
+            }
+
+            .options {
+                height: 60px;
+            }
+        }
+
+        @media screen and (max-width: 651px) {
+            .main-bg {
+                height: 17rem;
+            }
+
+            .top_bar {
+                height: 65px;
+            }
+
+            .menu-1 {
+                display: none;
+            }
+
+            .options {
+                height: 50px;
+            }
+
+            .option {
+                font-size: smaller;
+            }
+        }
+    </style>
+    <script>
+        const toogleBtn = document.querySelector('.toggle-btn');
+        const menu = document.querySelector('.menu-1');
+
+            toogleBtn.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    </script>
+    <header class="top_bar">
+        <div class="con flex h-full">
+            <img src='https://ifh.cc/g/a7Hmqx.png'>
+            <div class="flex-grow"></div>
+            <ul class="menu-1 flex">
+                <li><a href="index.html" class="px-4 flex h-full items-center menu-bar-lists">홈</a></li>
+                <li><a href="https://www.duranno.com/qt/view/bible.asp?qtDate=" target="_blank" class="px-4 flex h-full items-center menu-bar-lists">오늘의 QT</a></li>
+                <li><a href="#" class="px-4 flex h-full items-center menu-bar-lists">청년부 소식</a></li>
+                <li><a href="#" class="px-4 flex h-full items-center menu-bar-lists">About Us</a></li>
+            </ul>
+            <ul class="flex">
+                <li><a href="#!"><i class="fa-solid fa-bars px-4 flex h-full items-center toggle-btn"></i></a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="main-bg">
+        <div class= "bg-here"></div>
+    </div>
+    <div class="options con flex">
+        <li><a class="option px-4 flex h-full items-center" href="https://www.duranno.com/qt/" target="_blank">생명의 삶 홈페이지</a></li>
+        <li><a class="option px-4 flex h-full items-center" href="http://gdwoori.org/" target="_blank">검단우리교회 홈페이지</a></li>
+        <li><a class="option px-4 flex h-full items-center" href="https://www.youtube.com/@user-fq2px5ss8t/featured" target="_blank">검단우리교회 유튜브</a></li>
+        <li><a class="option px-4 flex h-full items-center" href="#!" target="_blank">청년부 SNS</a></li>
+        <li><a class="option px-4 flex h-full items-center" href="https://soundcloud.com/ouwa4isy5ly2?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank">공동체 성경읽기 (Sc)</a></li>
+    </div>
+    <nav class="body-class con">
+        <div>
+            <iframe width="320px" height="240px" src="https://www.youtube.com/embed/Xy8uUdy2Ci8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="flex-grow"></div>
+        <div class="slidebox">
+            <input type="radio" name="slide" class="none" id="slide01" checked>
+            <input type="radio" name="slide" class="none" id="slide02">
+            <input type="radio" name="slide" class="none" id="slide03">
+            <input type="radio" name="slide" class="none" id="slide04">
+            <input type="radio" name="slide" class="none" id="slide05">
+            <input type="radio" name="slide" class="none" id="slide06">
+            <input type="radio" name="slide" class="none" id="slide07">
+            <input type="radio" name="slide" class="none" id="slide08">
+            <input type="radio" name="slide" class="none" id="slide09">
+            <input type="radio" name="slide" class="none" id="slide10">
+            <ul class="slidelist">
+                <li class="slideitem">
+                    <img src="https://ifh.cc/g/llW0P6.jpg">
+                </li>
+                <li class="slideitem">
+                    <img src="https://ifh.cc/g/xKocL2.jpg">
+                </li>
+                <li class="slideitem">
+                    <img src="https://ifh.cc/g/AJPZAA.jpg">
+                </li>
+                <li class="slideitem">
+                    <img src="https://ifh.cc/g/4bhav7.jpg">
+                </li>
+                <li class="slideitem">
+                    <img src="https://ifh.cc/g/adM6yj.jpg">
+                </li>
+                <li class="slideitem">
+                    <img src="https://ifh.cc/g/5HoBVq.jpg">
+                </li>
+                <li class="slideitem">
+                    <img src="https://ifh.cc/g/9COzHY.jpg">
+                </li>
+                <li class="slideitem">
+                    <img src="https://ifh.cc/g/G1OaYS.jpg">
+                </li>
+                <li class="slideitem">
+                    <img src="https://ifh.cc/g/2mX13C.jpg">
+                </li>
+                <li class="slideitem">
+                    <img src="https://ifh.cc/g/lnDp3Y.jpg">
+                </li>
+            </ul>
+        </div>
+        <div class="flex-grow"></div>
+        <div class="pray4">
+            <div class="pray4-picture"></div>
+        </div>
+    </nav>
+    <footer>
+        <a>검단우리교회 인천 서구 완정로 178번안길 1(마전동) TEL.032-565-5970</a>
+    </footer>
+</body>
+</html>
