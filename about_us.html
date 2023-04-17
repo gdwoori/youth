@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/9265c174b0.js" crossorigin="anonymous"></script>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <title>검단우리교회 청년부 - About Us</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
         
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Noto Sans KR', sans-serif;
             margin: 0;
-            scroll-behavior: smooth;
             user-select: none;
         }
 
@@ -21,6 +26,12 @@
 
         .con {
             max-width: 1080px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .con2 {
+            max-width: 920px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -85,29 +96,34 @@
         }
 
         .picture-box {
-            width: 250px;
-            height: 250px;
+            width: 200px;
+            height: 200px;
             background-color: #A593E0;
             border-radius: 50px;
             transition: all 0.5s;
         }
 
         .picture-box:hover {
-            width: 270px;
-            height: 270px;
+            width: 220px;
+            height: 220px;
         }
 
         .text-box {
-            width: 750px;
-            height: 250px;
+            width: 660px;
+            height: 200px;
             background-color: #E0E3DA;
             border-radius: 50px;
             transition: all 0.5s;
+            align-items: center;
         }
 
         .text-box:hover {
-            width: 770px;
-            height: 270px;
+            width: 680px;
+            height: 220px;
+        }
+
+        .text-box a {
+            max-width: 600px;
         }
 
         .informing-texts {
@@ -120,7 +136,90 @@
             font-size: 30px;
             font-weight: lighter;
         }
+
+        footer {
+            height: 70px;
+            background-color: #383A3F;
+            margin-top: 15rem;
+            text-align: center;
+        }
+
+        footer a {
+            color: rgb(216, 216, 216);
+            font-size: small;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gap {
+            margin-top: 35px;
+        }
+
+        .up-arrow {
+            font-size: 20px;
+            border-radius: 10px;
+            border: 3px solid rgb(216, 216, 216);
+            padding: 0px 8px;
+            margin-top: 20px;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.quickmenu {
+    position:absolute;
+    top:40%;
+    right: 5%;
+    background-color: #383A3F;
+    display: block;
+    border-radius: 20px;
+}
+
+.quickmenu a {
+    font-size: 25px;
+    padding: 10px 8px;
+    color: #F8FAFF;
+}
+
+.content {
+    min-height:1000px;
+}
+
+
+
+
+
+
+
+
+
+
+
     </style>
+    <script>
+        $(document).ready(function(){
+    var currentPosition = parseInt($(".quickmenu").css("top"));
+    $(window).scroll(function() {
+      var position = $(window).scrollTop(); 
+      $(".quickmenu").stop().animate({"top":position+currentPosition+"px"},1000);
+    });
+  });
+
+    </script>
 </head>
 <body>
     <header class="top_bar">
@@ -132,55 +231,30 @@
                 <li><a href="https://www.duranno.com/qt/view/bible.asp?qtDate=" target="_blank" class="px-4 flex h-full items-center menu-bar-lists">오늘의 QT</a></li>
                 <li><a href="youth_news.html" class="px-4 flex h-full items-center menu-bar-lists">청년부 소식</a></li>
             </ul>
-            <ul class="flex">
-                <li><a href="#!"><i class="fa-solid fa-bars px-4 flex h-full items-center toggle-btn"></i></a></li>
-            </ul>
         </div>
     </header>
 
     <div class="quickmenu">
-        <ul id="quickmenu__ul">
-          <li><a href="#" title="Scroll Top"><i class="fa-solid fa-chevron-up"></i></a></li>
-          <li><a href="Youtube Music Ver.html" title="Youtube Music Ver."><i class="fa-regular fa-circle-play"></i></a></li>
-          <li><a href="opinion.html" title="Opinion"><i class="fa-solid fa-ticket"></i></a></li>
-        </ul>
+        <a href="#" title="Scroll Up" id="border-bottom"><i class="fa-solid fa-chevron-up"></i></a><br><br>
+        <a href="#footer" title="Scroll Down" id="another"><i class="fa-solid fa-chevron-down"></i></a>
     </div>
 
 
     <div class="informing-texts con items-center" style="text-align: center;">
         <a>청년부 소개</a>
     </div>
-    <div class="body-class con flex">
+    <div class="body-class con2 flex">
         <div class="picture-box">
             <img src="">
+            <a>Img Here</a>
         </div>
         <div class="flex-grow"></div>
         <div class="text-box">
-            <a></a>
+            <a class="con flex">Text Here</a>
         </div>
     </div>
 
-    <div class="body-class con flex">
-        <div class="text-box">
-            <a></a>
-        </div>
-        <div class="flex-grow"></div>
-        <div class="picture-box">
-            <img src="">
-        </div>
-    </div>
-
-    <div class="body-class con flex">
-        <div class="picture-box">
-            <img src="">
-        </div>
-        <div class="flex-grow"></div>
-        <div class="text-box">
-            <a></a>
-        </div>
-    </div>
-
-    <div class="body-class con flex">
+    <div class="body-class con2 flex">
         <div class="text-box">
             <a></a>
         </div>
@@ -190,7 +264,7 @@
         </div>
     </div>
 
-    <div class="body-class con flex">
+    <div class="body-class con2 flex">
         <div class="picture-box">
             <img src="">
         </div>
@@ -200,7 +274,7 @@
         </div>
     </div>
 
-    <div class="body-class con flex">
+    <div class="body-class con2 flex">
         <div class="text-box">
             <a></a>
         </div>
@@ -210,7 +284,7 @@
         </div>
     </div>
 
-    <div class="body-class con flex">
+    <div class="body-class con2 flex">
         <div class="picture-box">
             <img src="">
         </div>
@@ -220,7 +294,7 @@
         </div>
     </div>
 
-    <div class="body-class con flex">
+    <div class="body-class con2 flex">
         <div class="text-box">
             <a></a>
         </div>
@@ -230,7 +304,7 @@
         </div>
     </div>
 
-    <div class="body-class con flex">
+    <div class="body-class con2 flex">
         <div class="picture-box">
             <img src="">
         </div>
@@ -240,7 +314,7 @@
         </div>
     </div>
 
-    <div class="body-class con flex">
+    <div class="body-class con2 flex">
         <div class="text-box">
             <a></a>
         </div>
@@ -250,7 +324,7 @@
         </div>
     </div>
 
-    <div class="body-class con flex">
+    <div class="body-class con2 flex">
         <div class="picture-box">
             <img src="">
         </div>
@@ -260,7 +334,7 @@
         </div>
     </div>
 
-    <div class="body-class con flex">
+    <div class="body-class con2 flex">
         <div class="text-box">
             <a></a>
         </div>
@@ -270,7 +344,7 @@
         </div>
     </div>
 
-    <div class="body-class con flex">
+    <div class="body-class con2 flex">
         <div class="picture-box">
             <img src="">
         </div>
@@ -280,7 +354,7 @@
         </div>
     </div>
 
-    <div class="body-class con flex">
+    <div class="body-class con2 flex">
         <div class="text-box">
             <a></a>
         </div>
@@ -290,7 +364,7 @@
         </div>
     </div>
 
-    <div class="body-class con flex">
+    <div class="body-class con2 flex">
         <div class="picture-box">
             <img src="">
         </div>
@@ -300,7 +374,7 @@
         </div>
     </div>
 
-    <div class="body-class con flex">
+    <div class="body-class con2 flex">
         <div class="text-box">
             <a></a>
         </div>
@@ -310,7 +384,7 @@
         </div>
     </div>
 
-    <div class="body-class con flex">
+    <div class="body-class con2 flex">
         <div class="picture-box">
             <img src="">
         </div>
@@ -320,7 +394,7 @@
         </div>
     </div>
 
-    <div class="body-class con flex">
+    <div class="body-class con2 flex">
         <div class="text-box">
             <a></a>
         </div>
@@ -330,7 +404,7 @@
         </div>
     </div>
 
-    <div class="body-class con flex">
+    <div class="body-class con2 flex">
         <div class="picture-box">
             <img src="">
         </div>
@@ -339,5 +413,32 @@
             <a></a>
         </div>
     </div>
+
+    <div class="body-class con2 flex">
+        <div class="text-box">
+            <a></a>
+        </div>
+        <div class="flex-grow"></div>
+        <div class="picture-box">
+            <img src="">
+        </div>
+    </div>
+
+    <div class="body-class con2 flex">
+        <div class="picture-box">
+            <img src="">
+        </div>
+        <div class="flex-grow"></div>
+        <div class="text-box">
+            <a></a>
+        </div>
+    </div>
+    <footer id="footer">
+        <div class="flex con">
+            <a class="con gap">검단우리교회 인천 서구 완정로 178번안길 1(마전동) TEL.032-565-5970</a>
+            <div class="flex-grow"></div>
+            <a href="#" class="up-arrow"><i class="fa-solid fa-angle-up"></i></a>
+        </div>
+    </footer>
 </body>
 </html>
