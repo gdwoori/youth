@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/9265c174b0.js" crossorigin="anonymous"></script>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-    <title>검단우리교회 청년부 - About Us</title>
+    <title>청년부 소개</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
         
@@ -79,8 +79,12 @@
             padding-right: 1rem;
         }
 
-        .top_bar > .con > .menu-1 > li:hover > a {
-            text-decoration: underline;
+        .top_bar > .con > .menu-1 > li:hover > .hovering {
+            font-weight: bolder;
+        }
+
+        .now-on {
+            font-weight: bolder;
         }
 
         a {
@@ -163,63 +167,42 @@
             margin-top: 20px;
         }
 
+        .quickmenu {
+            position: absolute;
+            top: 40%;
+            right: 5%;
+            background: transparent;
+            display: block;
+            border-radius: 25px;
+            border: 4px solid #383A3F;
+        }
 
+        .quickmenu a {
+            font-size: 25px;
+            padding: 10px 8px;
+            color: #383A3F;
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.quickmenu {
-    position:absolute;
-    top:40%;
-    right: 5%;
-    background-color: #383A3F;
-    display: block;
-    border-radius: 20px;
-}
-
-.quickmenu a {
-    font-size: 25px;
-    padding: 10px 8px;
-    color: #F8FAFF;
-}
-
-.content {
-    min-height:1000px;
-}
-
-
-
-
-
-
-
-
-
-
-
+        .content {
+            min-height:1000px;
+        }
     </style>
     <script>
         $(document).ready(function(){
-    var currentPosition = parseInt($(".quickmenu").css("top"));
-    $(window).scroll(function() {
-      var position = $(window).scrollTop(); 
-      $(".quickmenu").stop().animate({"top":position+currentPosition+"px"},1000);
-    });
-  });
+            var currentPosition = parseInt($(".quickmenu").css("top"));
+            $(window).scroll(function() {
+                var position = $(window).scrollTop();
+                $(".quickmenu").stop().animate({"top":position+currentPosition+"px"},1000);
+            });
+        });
 
+        function linking() {
+            if (confirm("링크로 이동합니다.") ==true){
+                window.open('https://www.duranno.com/qt/view/bible.asp?qtDate=');
+            }else{
+                return false;
+            }
+        }
     </script>
 </head>
 <body>
@@ -228,9 +211,10 @@
             <img src='https://ifh.cc/g/a7Hmqx.png'>
             <div class="flex-grow"></div>
             <ul class="menu-1 flex">
-                <li><a href="index.html" class="px-4 flex h-full items-center menu-bar-lists">홈</a></li>
-                <li><a href="https://www.duranno.com/qt/view/bible.asp?qtDate=" target="_blank" class="px-4 flex h-full items-center menu-bar-lists">오늘의 QT</a></li>
-                <li><a href="youth_news.html" class="px-4 flex h-full items-center menu-bar-lists">청년부 소식</a></li>
+                <li><a href="index.html" class="hovering px-4 flex h-full items-center menu-bar-lists">홈</a></li>
+                <li><a onclick="linking()" class="hovering px-4 flex h-full items-center menu-bar-lists">오늘의 QT</a></li>
+                <li><a href="youth_news.html" class="hovering px-4 flex h-full items-center menu-bar-lists">청년부 소식</a></li>
+                <li><a class="now-on px-4 flex h-full items-center menu-bar-lists">About Us</a></li>
             </ul>
         </div>
     </header>
@@ -247,7 +231,6 @@
     <div class="body-class con2 flex">
         <div class="picture-box">
             <img src="">
-            <a>Img Here</a>
         </div>
         <div class="flex-grow"></div>
         <div class="text-box">
