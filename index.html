@@ -74,8 +74,12 @@
             padding-right: 1rem;
         }
 
-        .top_bar > .con > .menu-1 > li:hover > a {
-            text-decoration: underline;
+        .top_bar > .con > .menu-1 > li:hover > .hovering {
+            font-weight: bolder;
+        }
+
+        .now-on {
+            font-weight: bolder;
         }
 
         a {
@@ -160,20 +164,22 @@
             display: none;
         }
 
-            * {margin: 0; padding: 0; box-sizing: border-box;}
-            ul, li {list-style: none;}
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        ul, li {list-style: none;}
 
         .slidebox {
             max-width: 320px;
             height: 242px;
             width: 100%;
             margin: 0 auto;
-            border: 5px solid #FFBC42;
-            border-radius: 2px;
         }
 
         .slidebox img {
             max-width: 100%;
+            border-top: 5px solid #FFBC42;
+            border-bottom: 5px solid #FFBC42;
+            border-left: 5px solid #FFBC42;
+            border-right: 5px solid #FFBC42;
         }
 
         .slidebox .slidelist {
@@ -454,6 +460,26 @@
             background-size: 100%;
         }
 
+        .un-supported {
+            position: absolute;
+            text-align: center;
+            align-items: center;
+            color: white;
+            font-size: 1px;
+            display: none;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .un-supported a {
+            color: white;
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
         @media screen and (max-width: 1081px) {
             .main-bg {
                 height: 28rem;
@@ -475,94 +501,91 @@
         }
 
         @media screen and (max-width: 651px) {
-            .main-bg {
-                height: 17rem;
+            body {
+                overflow: hidden;
+                background-color: black;
             }
 
-            .top_bar {
-                height: 65px;
-            }
-
-            .menu-1 {
+            .layerPopup, .top_bar, .main-bg, .options, .body-class, .up-arrow {
                 display: none;
             }
 
-            .options {
-                height: 50px;
+            .un-supported {
+                display: block;
             }
 
-            .option {
-                font-size: smaller;
+            footer {
+                margin-top: 0;
+                transform: translateY(970%);
+                background-color: black;
+                z-index: 2;
+            }
+
+            footer a {
+                font-size: 10px;
             }
         }
 
+        .layerPopup:before {
+            display: block;
+            content: "";
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.5);
+            z-index: 9000;
+        }
 
+        .layerPopup .layerBox {
+            z-index: 10000;
+            position: fixed;
+            left: 50%;
+            top: 48%;
+            transform: translate(-50%, -50%);
+            padding: 30px;
+            background: #fff;
+            border-radius: 6px;
+        }
 
+        .layerPopup .layerBox .title {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            font-weight: 600;
+            border-bottom: 1px solid #d9d9d9;
+        }
 
+        .layerPopup div {
+	        display: inline;
+        }
 
-.layerPopup:before {
-    display:block;
-    content:""; 
-    position:fixed; 
-    left:0; 
-    top:0; 
-    width:100%; 
-    height:100%; 
-    background:rgba(0,0,0,.5); 
-    z-index:9000
-}
+        .layerPopup form {
+	        margin-top : 5px;
+	        font-size: 16px;
+            font-weight: 600;
+	        height: 30px;
+	        line-height: 30px;
+        }
 
-.layerPopup .layerBox {
-    z-index:10000;
-    position:fixed; 
-    left:50%; 
-    top:48%; 
-    transform:translate(-50%, -50%); 
-    padding:30px; 
-    background:#fff; 
-    border-radius:6px; 
-}
+        .layerPopup #close {
+            font-size: 16px;
+            font-weight: 600;
+            width: 40px;
+            height: 30px;
+            color: black;
+            float: right;
+            line-height: 30px;
+            text-align: center;
+            text-decoration: underline;
+        }
 
-.layerPopup .layerBox .title {
-    margin-bottom:10px; 
-    padding-bottom:10px; 
-    font-weight:600; 
-    border-bottom:1px solid #d9d9d9;
-}
-
-.layerPopup div {
-	display : inline;
-}
-
-.layerPopup form {
-	margin-top : 5px;
-	font-size:16px; font-weight:600;
-	weight: 100%;
-	height : 30px;
-	line-height:30px
-}
-
-.layerPopup #close {
-    font-size:16px; 
-    font-weight:600; 
-    width: 40px; 
-    height : 30px;
-    color:black; 
-    float: right; 
-    line-height:30px; 
-    text-align : center;
-    text-decoration:underline;
-}
-
-.layerPopup a {
-	text-decoration : none;
-	color : black;
-    width: 50px;
-    height : 40px;
-}
-
-
-
+        .layerPopup a {
+	        text-decoration : none;
+	        color : black;
+            width: 50px;
+            height : 40px;
+        }
     </style>
     <script>
         const toogleBtn = document.querySelector('.toggle-btn');
@@ -571,44 +594,87 @@
             toogleBtn.addEventListener('click', () => {
             menu.classList.toggle('active');
         });
-
-
         
         function closePop() {
             document.all['layer_popup'].style.visibility = "hidden";
         }
 
+        function linking() {
+            if (confirm("링크로 이동합니다.") ==true){
+                window.open('https://www.duranno.com/qt/view/bible.asp?qtDate=');
+            }else{
+                return false;
+            }
+        }
 
+        function qthp() {
+            if (confirm("링크로 이동합니다.") ==true){
+                window.open('https://www.duranno.com/qt/');
+            }else{
+                return false;
+            }
+        }
+
+        function gdwrhp() {
+            if (confirm("링크로 이동합니다.") ==true){
+                window.open('http://gdwoori.org/');
+            }else{
+                return false;
+            }
+        }
+
+        function gdwryt() {
+            if (confirm("링크로 이동합니다.") ==true){
+                window.open('https://www.youtube.com/@user-fq2px5ss8t/featured');
+            }else{
+                return false;
+            }
+        }
+
+        function youthsns() {
+            if (confirm("링크로 이동합니다.") ==true){
+                window.open('');
+            }else{
+                return false;
+            }
+        }
+
+        function readingJesus() {
+            if (confirm("링크로 이동합니다.") ==true){
+                window.open('https://soundcloud.com/ouwa4isy5ly2?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing');
+            }else{
+                return false;
+            }
+        }
     </script>
 
+<!-- layer popup content (from here) -->
 
-<!-- layer popup content -->
-<div class="layerPopup" id="layer_popup" style="visibility: visible;">
-    <div class="layerBox">
-        <h4 class="title">Notice</h4>
-        <div class="cont">
-            <p>
-                개발중인 웹페이지라 지원되지 않는 기능들이 많습니다.<br>전체화면 사용을 권장드립니다.
-            </p>
-        </div>
-        <form name="pop_form">
-		    <div id="close" ><a href="javascript:closePop();">닫기</a></div>    
-		</form>
-	</div>
-</div>
+    <div class="layerPopup" id="layer_popup" style="visibility: visible;">
+        <div class="layerBox">
+            <h4 class="title">Notice</h4>
+            <div class="cont">
+                <p>
+                    개발중인 웹페이지라 지원되지 않는 기능들이 많습니다.<br>전체화면 사용을 권장드립니다.<br>(권장 화면 비율 - 1920:1080)
+                </p>
+            </div>
+            <form name="pop_form">
+		        <div id="close" ><a href="javascript:closePop();">닫기</a></div>    
+		    </form>
+	    </div>
+    </div>
 
-
-
-
+<!-- layer popup content (until here) -->
 
     <header class="top_bar">
         <div class="con flex h-full">
             <img src='https://ifh.cc/g/a7Hmqx.png'>
             <div class="flex-grow"></div>
             <ul class="menu-1 flex">
-                <li><a href="https://www.duranno.com/qt/view/bible.asp?qtDate=" target="_blank" class="px-4 flex h-full items-center menu-bar-lists">오늘의 QT</a></li>
-                <li><a href="youth_news.html" class="px-4 flex h-full items-center menu-bar-lists">청년부 소식</a></li>
-                <li><a href="about_us.html" class="px-4 flex h-full items-center menu-bar-lists">About Us</a></li>
+                <li><a class="now-on px-4 flex h-full items-center menu-bar-lists">홈</a></li>
+                <li><a onclick="linking()" class="hovering px-4 flex h-full items-center menu-bar-lists">오늘의 QT</a></li>
+                <li><a href="youth_news.html" class="hovering px-4 flex h-full items-center menu-bar-lists">청년부 소식</a></li>
+                <li><a href="about_us.html" class="hovering px-4 flex h-full items-center menu-bar-lists">About Us</a></li>
             </ul>
             <ul class="flex">
                 <li><a href="#!"><i class="fa-solid fa-bars px-4 flex h-full items-center toggle-btn"></i></a></li>
@@ -620,11 +686,11 @@
         <div class= "bg-here"></div>
     </div>
     <div class="options con flex">
-        <li><a class="option px-4 flex h-full items-center" href="https://www.duranno.com/qt/" target="_blank">생명의 삶 홈페이지</a></li>
-        <li><a class="option px-4 flex h-full items-center" href="http://gdwoori.org/" target="_blank">검단우리교회 홈페이지</a></li>
-        <li><a class="option px-4 flex h-full items-center" href="https://www.youtube.com/@user-fq2px5ss8t/featured" target="_blank">검단우리교회 유튜브</a></li>
-        <li><a class="option px-4 flex h-full items-center" href="#!" target="_blank">청년부 SNS</a></li>
-        <li><a class="option px-4 flex h-full items-center" href="https://soundcloud.com/ouwa4isy5ly2?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank">공동체 성경읽기 (Sc)</a></li>
+        <li><a class="option px-4 flex h-full items-center" onclick="qthp()">생명의 삶 홈페이지</a></li>
+        <li><a class="option px-4 flex h-full items-center" onclick="gdwrhp()">검단우리교회 홈페이지</a></li>
+        <li><a class="option px-4 flex h-full items-center" onclick="gdwryt()">검단우리교회 유튜브</a></li>
+        <li><a class="option px-4 flex h-full items-center" onclick="youthsns()">청년부 SNS</a></li>
+        <li><a class="option px-4 flex h-full items-center" onclick="readingJesus()">공동체 성경읽기 (Sc)</a></li>
     </div>
     <nav class="body-class con">
         <div>
@@ -680,6 +746,13 @@
             <div class="pray4-picture"></div>
         </div>
     </nav>
+
+    <div class="un-supported">
+        <canvas></canvas>
+        <script type="text/javascript" src="js/main.js"></script>
+        <a>죄송합니다, 해당 화면 크기는 지원하지 않습니다.<br>Sorry, Unsupported screen size</a>
+    </div>
+
     <footer id="footer">
         <div class="flex con">
             <a class="con gap">검단우리교회 인천 서구 완정로 178번안길 1(마전동) TEL.032-565-5970</a>
